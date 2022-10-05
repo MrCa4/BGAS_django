@@ -1,0 +1,13 @@
+{% extends "base/base.html" %}
+
+{%  block content %}
+
+<div class="home-div">
+    <h1>Привет, {{ user.username|default:'Guest' }}</h1>
+    <h3>Email: {{ user.email_user }}</h3>
+    <h3>Последний вход: {{ user.last_login }}</h3>
+    <h3> Дата регистрации: {{ user.date_joined }}</h3>
+    <h3><a href="/accounts/posts">Количество моих постов: {{ post_count }}</a></h3>
+</div>
+
+{% endblock %}

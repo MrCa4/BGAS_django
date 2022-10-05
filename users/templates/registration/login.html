@@ -1,0 +1,37 @@
+<!-- registration/login.html -->
+{% extends "base/base.html" %}
+
+
+{% block content %}
+    <br>
+    <br>
+    <div class="container">
+    <div class="row">
+      <h5 class="display-5">Вход в личный кабинет</h5>
+      <div class="text-danger font-weight-bold">
+          {% for error in errors %}
+            <li>{{error}}</li>
+          {% endfor %}
+      </div>
+      <div class="text-success font-weight-bold">
+        {% if msg %}
+        <div class="badge bg-success text-wrap font-weight-bold" style="font-size: large;">
+          {{msg}}
+        </div>
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="row my-5">
+      <form method="POST">
+           {% csrf_token %}
+        <div class="mb-3">
+            {{ form.as_p }}
+         </div>
+        <button type="submit" class="btn btn-primary">Войти</button>
+      </form>
+    </div>
+  </div>
+    <br>
+    <br>
+{% endblock %}

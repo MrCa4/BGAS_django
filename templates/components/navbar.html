@@ -1,0 +1,48 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+              <a class="navbar-brand" href="/">Каталог</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+        </li>
+         {% if user.is_authenticated %}
+        <li class="nav-item">
+           <a class="navbar-brand" href="/accounts/dashboard">Личный кабинет</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+        </li>
+          <li class="nav-item">
+             <a class="navbar-brand" href="/accounts/logout">Выход</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+        </button>
+            </li>
+          {% else %}
+             <li class="nav-item">
+                <a class="navbar-brand" href="/accounts/signup">Зарегистрироваться</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                 <span class="navbar-toggler-icon"></span>
+                </button>
+            </li>
+            <li class="nav-item">
+                <a class="navbar-brand"  href="/accounts/login">Вход</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+            </li>
+          {% endif %}
+      </ul>
+     {% if user.is_authenticated %}
+       <div class="add-post">
+       <a class="navbar-brand"  href="/app/add_post">
+           <button class="add-post-button" href="/app/add_post"><span>Новый пост</span>
+                </button></a>
+       </div>
+    {% endif %}
+    </div>
+  </div>
+</nav>
